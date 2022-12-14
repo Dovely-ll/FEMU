@@ -820,6 +820,9 @@ enum NvmeFeatureIds {
     NVME_WRITE_ATOMICITY            = 0xa,
     NVME_ASYNCHRONOUS_EVENT_CONF    = 0xb,
     NVME_TIMESTAMP                  = 0xe,
+    NVME_READ_RECOVER_LEVEL         = 0x12,
+    NVME_PLM_CONFIG                 = 0x13,
+    NVME_PLM_WINDOW                 = 0x14,
     NVME_SOFTWARE_PROGRESS_MARKER   = 0x80,
     NVME_FID_MAX                    = 0x100
 };

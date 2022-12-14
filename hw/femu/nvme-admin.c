@@ -600,6 +600,17 @@ static uint16_t nvme_get_feature(FemuCtrl *n, NvmeCmd *cmd, NvmeCqe *cqe)
     case NVME_SOFTWARE_PROGRESS_MARKER:
         cqe->n.result = cpu_to_le32(n->features.sw_prog_marker);
         break;
+    case NVME_READ_RECOVER_LEVEL:
+        cqe->n.result = cpu_to_le32(0);
+        break;
+    case NVME_PLM_CONFIG:
+        cqe->n.result = cpu_to_le32(0);
+        cqe->status = cpu_to_le16(0x0F);
+        break;
+    case NVME_PLM_WINDOW:
+        cqe->n.result = cpu_to_le32(0);
+        cqe->status = cpu_to_le16(0x0F);
+        break;
     default:
         return NVME_INVALID_FIELD | NVME_DNR;
     }
@@ -669,6 +680,17 @@ static uint16_t nvme_set_feature(FemuCtrl *n, NvmeCmd *cmd, NvmeCqe *cqe)
         break;
     case NVME_SOFTWARE_PROGRESS_MARKER:
         n->features.sw_prog_marker = dw11;
+        break;
+    case NVME_READ_RECOVER_LEVEL:
+        cqe->n.result = cpu_to_le32(0);
+        break;
+    case NVME_PLM_CONFIG:
+        cqe->n.result = cpu_to_le32(0);
+        cqe->status = cpu_to_le16(0x0F);
+        break;
+    case NVME_PLM_WINDOW:
+        cqe->n.result = cpu_to_le32(0);
+        cqe->status = cpu_to_le16(0x0F);
         break;
     default:
         return NVME_INVALID_FIELD | NVME_DNR;

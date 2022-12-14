@@ -198,6 +198,11 @@ static const bool nvme_feature_support[NVME_FID_MAX] = {
     [NVME_TIMESTAMP]                = true,
     [NVME_HOST_BEHAVIOR_SUPPORT]    = true,
     [NVME_COMMAND_SET_PROFILE]      = true,
+    /* custom added
+    [NVME_READ_RECOVER_LEVEL]       = true,
+    [NVME_PLM_CONFIG]               = true,
+    [NVME_PLM_WINDOW]               = true,
+    */
 };
 
 static const uint32_t nvme_feature_cap[NVME_FID_MAX] = {
